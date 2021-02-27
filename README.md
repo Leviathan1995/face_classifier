@@ -1,9 +1,13 @@
-[toc]
-
 # face_classifier
 
 The facial classification tool base on [face_recognition](https://github.com/ageitgey/face_recognition)
 
+   * [How to use](#how-to-use)
+        * [Requirements](#requirements)
+        * [Usage](#usage)
+   * [Thanks](#thanks)
+   * [TODO](#todo)
+   * [License](#license)
 
 
 ## How to use
