@@ -1,2 +1,6 @@
 .idea/*
 .DS_Store
+.pypirc
+build/
+dist/
+face_classifier.egg-info/
