@@ -75,19 +75,26 @@ def classifier(path):
         unknown_images_encoding = []
         try:
             raw_image_encoding = face_recognition.face_encodings(raw_image)[0]
-            for unknown_image in unknown_images:
-                unknown_image_encoding = face_recognition.face_encodings(unknown_image)[0]
-                unknown_images_encoding.append(unknown_image_encoding)
-            known_faces = [
-                raw_image_encoding
-            ]
         except IndexError:
-            print("It wasn't able to locate any faces in at least one of the images."
-                  "Check the image files. Aborting...")
-            quit()
+            print("It wasn't able to locate any faces in raw image %s" % images[image_index])
+            continue
+
+        for unknown_image_index in range(len(unknown_images)):
+            try:
+                unknown_image_encoding = face_recognition.face_encodings(unknown_images[unknown_image_index])[0]
+                unknown_images_encoding.append(unknown_image_encoding)
+            except IndexError:
+                print("It wasn't able to locate any faces in raw image %s" %
+                      images[image_index+unknown_image_index])
+                continue
+
+        known_faces = [
+            raw_image_encoding
+         ]
 
         for unknown_image_encoding_index in range(len(unknown_images_encoding)):
-            result = face_recognition.compare_faces(known_faces, unknown_images_encoding[unknown_image_encoding_index])
+            result = face_recognition.compare_faces(known_faces, unknown_images_encoding[unknown_image_encoding_index],
+                                                    tolerance=0.7)
             if result[0]:
                 shutil.copy(images[image_index+unknown_image_encoding_index+1], image_index_path)
                 bitmap[image_index+unknown_image_encoding_index+1] = 0x01
