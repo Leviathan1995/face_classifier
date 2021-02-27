@@ -43,11 +43,11 @@ setup(
     include_package_data=True,
     keywords='face_classifier',
     name='face2_classifier',
-    packages=find_packages(include=['face2_classifier', 'face2_classifier.*']),
+    packages=find_packages(include=['face2_classifier', 'face_classifier', 'face2_classifier.*']),
     setup_requires=setup_requirements,
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/leviathan1995/face_classifier',
-    version='0.1.0',
+    version='0.1.1',
     zip_safe=False,
 )

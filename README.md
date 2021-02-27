@@ -18,6 +18,10 @@ The facial classification tool base on [face_recognition](https://github.com/age
 
 ### Usage
 
+```shell
+pip install face2-classifier
+```
+
 ## Thanks
 * [face_recognition](https://github.com/ageitgey/face_recognition)
 

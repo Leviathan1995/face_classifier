@@ -1,4 +1,7 @@
+"""Console script for face_classifier."""
+
 import os
+import sys
 import shutil
 import matplotlib.pyplot as plt
 import click
@@ -9,8 +12,6 @@ CLASSIFIER_PATH = "FACE_CLASSIFIER"
 CLASSIFIER_PREFIX = "FACE_"
 
 
-@click.command()
-@click.option('--path', help='The images absolute path.')
 def classifier(path):
     print(f'* The images absolute path:', path)
 
@@ -102,5 +103,13 @@ def classifier(path):
     print("* Finished.")
 
 
-if __name__ == '__main__':
-    classifier()
+@click.command()
+@click.option('--path', help='The images absolute path.')
+def main(path):
+    """Console script for face_classifier."""
+    classifier(path)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())  # pragma: no cover

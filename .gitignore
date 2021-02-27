@@ -4,3 +4,4 @@
 build/
 dist/
 face2_classifier.egg-info/
+face_classifier/__pycache__/
