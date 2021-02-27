@@ -3,4 +3,4 @@
 .pypirc
 build/
 dist/
-face_classifier.egg-info/
+face2_classifier.egg-info/
